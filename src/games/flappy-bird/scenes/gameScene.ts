@@ -5,8 +5,8 @@
  * @license      Digitsensitive
  */
 
-import { Bird } from "../objects/bird";
-import { Pipe } from "../objects/pipe";
+import { Bird } from '../objects/bird';
+import { Pipe } from '../objects/pipe';
 
 export class GameScene extends Phaser.Scene {
   // objects
@@ -21,11 +21,12 @@ export class GameScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "GameScene"
+      key: 'GameScene'
     });
   }
 
   init(): void {
+    console.log('GameScene init');
     // objects
     this.bird = null;
     this.pipes = this.add.group({
@@ -40,21 +41,23 @@ export class GameScene extends Phaser.Scene {
   }
 
   create(): void {
-    this.bg = this.add.tileSprite(0, 0, 135, 200, "background");
+    console.log('GameScene create');
+
+    this.bg = this.add.tileSprite(0, 0, 135, 200, 'background');
     this.bg.setScale(6);
 
     this.scoreText.push(
-      this.add.text(this.sys.canvas.width / 2 - 14, 30, "0", {
-        fontFamily: "Connection",
-        fontSize: "40px",
-        fill: "#000"
+      this.add.text(this.sys.canvas.width / 2 - 14, 30, '0', {
+        fontFamily: 'Connection',
+        fontSize: '40px',
+        fill: '#000'
       })
     );
     this.scoreText.push(
-      this.add.text(this.sys.canvas.width / 2 - 16, 30, "0", {
-        fontFamily: "Connection",
-        fontSize: "40px",
-        fill: "#fff"
+      this.add.text(this.sys.canvas.width / 2 - 16, 30, '0', {
+        fontFamily: 'Connection',
+        fontSize: '40px',
+        fill: '#fff'
       })
     );
 
@@ -67,7 +70,7 @@ export class GameScene extends Phaser.Scene {
       scene: this,
       x: 50,
       y: 100,
-      key: "bird"
+      key: 'bird'
     });
 
     this.timer = this.time.addEvent({
@@ -79,6 +82,8 @@ export class GameScene extends Phaser.Scene {
   }
 
   update(): void {
+    console.log('GameScene update');
+
     if (!this.bird.getDead()) {
       this.bg.tilePositionX -= 1;
       this.bird.update();
@@ -105,7 +110,7 @@ export class GameScene extends Phaser.Scene {
       x: x,
       y: y,
       frame: frame,
-      key: "pipe"
+      key: 'pipe'
     });
 
     // add pipe to group
@@ -115,8 +120,8 @@ export class GameScene extends Phaser.Scene {
   private addRowOfPipes(): void {
     // update the score
     this.score += 1;
-    this.scoreText[0].setText("" + this.score);
-    this.scoreText[1].setText("" + this.score);
+    this.scoreText[0].setText('' + this.score);
+    this.scoreText[1].setText('' + this.score);
 
     // randomly pick a number between 1 and 5
     let hole = Math.floor(Math.random() * 5) + 1;
@@ -140,6 +145,6 @@ export class GameScene extends Phaser.Scene {
   }
 
   private restartGame(): void {
-    this.scene.start("MainMenuScene");
+    this.scene.start('MainMenuScene');
   }
 }

@@ -11,11 +11,12 @@ export class MainMenuScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "MainMenuScene"
+      key: 'MainMenuScene'
     });
   }
 
   init(): void {
+    console.log('MainMenuScene init');
     this.startKey = this.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.S
     );
@@ -23,12 +24,14 @@ export class MainMenuScene extends Phaser.Scene {
   }
 
   create(): void {
+    console.log('MainMenuScene create');
+
     this.bitmapTexts.push(
       this.add.bitmapText(
         this.sys.canvas.width / 2 - 135,
         this.sys.canvas.height / 2 - 80,
-        "flappyBirdFont",
-        "FLAPPY BIRD",
+        'flappyBirdFont',
+        'FLAPPY BIRD',
         40
       )
     );
@@ -37,16 +40,18 @@ export class MainMenuScene extends Phaser.Scene {
       this.add.bitmapText(
         this.sys.canvas.width / 2 - 50,
         this.sys.canvas.height / 2 - 10,
-        "flappyBirdFont",
-        "S: PLAY",
+        'flappyBirdFont',
+        'S: PLAY',
         30
       )
     );
   }
 
   update(): void {
+    console.log('MainMenuScene update');
+
     if (this.startKey.isDown) {
-      this.scene.start("GameScene");
+      this.scene.start('GameScene');
     }
   }
 }
