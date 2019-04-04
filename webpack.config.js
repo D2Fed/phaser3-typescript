@@ -1,14 +1,17 @@
 var path = require('path');
 var pathToPhaser = path.join(__dirname, '/node_modules/phaser/');
 var phaser = path.join(pathToPhaser, 'dist/phaser.js');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  // entry: './src/boilerplate/game.ts',
+  entry: './src/boilerplate/game.ts',
   // entry: './src/games/alpha-adjust/game.ts',
   // entry: './src/games/asteroid/game.ts',
   // entry: './src/games/blockade/game.ts',
   // entry: './src/games/coin-runner/game.ts',
-  entry: './src/games/flappy-bird/game.ts',
+  // entry: './src/games/flappy-bird/game.ts',
   // entry: './src/games/snake/game.ts',
   // entry: './src/games/space-invaders/game.ts',
   // entry: './src/games/super-mario-land/game.ts',
@@ -35,5 +38,16 @@ module.exports = {
     alias: {
       phaser: phaser
     }
-  }
+  },
+  plugins: [
+    // new webpack.ProgressPlugin(),
+    // new CleanWebpackPlugin(),
+    new webpack.DefinePlugin({
+      CANVAS_RENDERER: JSON.stringify(true),
+      WEBGL_RENDERER: JSON.stringify(false)
+    })
+    // new HtmlWebpackPlugin({
+    //   template: './index.html'
+    // })
+  ]
 };

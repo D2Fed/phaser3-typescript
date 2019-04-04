@@ -118,6 +118,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   private addRowOfPipes(): void {
+    console.log('addRowOfPipes');
     // update the score
     this.score += 1;
     this.scoreText[0].setText('' + this.score);

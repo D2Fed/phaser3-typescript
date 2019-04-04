@@ -5,7 +5,8 @@
  */
 
 import 'phaser';
-import { MainScene } from './scenes/mainScene';
+import MainMenuScene from './scenes/MainMenuScene';
+import WelcomeScene from './scenes/WelcomeScene';
 
 // main game configuration
 const config: GameConfig = {
@@ -13,7 +14,7 @@ const config: GameConfig = {
   height: window.innerHeight,
   type: Phaser.AUTO,
   parent: 'game',
-  scene: MainScene,
+  scene: [WelcomeScene, MainMenuScene],
   physics: {
     default: 'arcade',
     arcade: {
