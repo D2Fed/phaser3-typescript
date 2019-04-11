@@ -18,6 +18,21 @@
         "url": "src/games/flappy-bird/assets/sprites/bird.png"
       },
       {
+        "type": "image",
+        "key": "bird2",
+        "url": "https://m.360buyimg.com/jrqb/jfs/t1/16944/12/13545/71127/5ca080bfEcae9f9c1/4fa788cfc1ea38f7.jpg"
+      },
+      {
+        "type": "image",
+        "key": "bird3",
+        "url": "https://img30.360buyimg.com/jr_image/jfs/t1/30723/31/9086/50198/5ca32428E23fee640/612cc4e928f9f7fc.jpg"
+      },
+      {
+        "type": "image",
+        "key": "bird4",
+        "url": "https://m.360buyimg.com/jrqb/jfs/t1/31343/38/8576/60170/5ca08492Ec4a46ff7/cb3e6fdec935c204.jpg"
+      },
+      {
         "type": "spritesheet",
         "key": "pipe",
         "url": "src/games/flappy-bird/assets/sprites/pipe.png",

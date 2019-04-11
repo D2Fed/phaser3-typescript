@@ -10,6 +10,11 @@ export default class WelcomeScene extends Phaser.Scene {
 
   preload() {
     this.cameras.main.setBackgroundColor(0x98d687);
+    // console.log(
+    //   'width,height',
+    //   this.cameras.main.width,
+    //   this.cameras.main.height
+    // );
     this.createLoadingbar();
 
     this.load.on('progress', value => {
@@ -25,15 +30,15 @@ export default class WelcomeScene extends Phaser.Scene {
     });
 
     this.load.on('complete', () => {
-      // this.progressBar.destroy();
-      // this.loadingBar.destroy();
+      this.progressBar.destroy();
+      this.loadingBar.destroy();
     });
 
     this.load.pack('preload', './src/boilerplate/assets/pack.json', 'preload');
   }
 
   update() {
-    // this.scene.start('MainMenuScene');
+    this.scene.start('MainMenuScene');
   }
 
   createLoadingbar() {
